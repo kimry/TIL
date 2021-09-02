@@ -16,6 +16,7 @@
 ## git init
 
  * 현재 working directory에 git 생성
+ * `git init` 으로 사용
 
 
 
