@@ -7,7 +7,7 @@
 1. git init
 2. git add
 3. git status
-4. git configC:\Users\kim\Desktop\study\til\README.md
+4. git config
 5. git commit
 6. git log
 
@@ -69,19 +69,19 @@
 
 ## git remote
 
-* local repository와 remo_repository를 연결
+* remo_repository 관리 가능
 * `git remote add origin <remote_repo>`  형식으로 사용
 
 
 
 ## git push
 
-* local repository에 담긴 내용을 remo_repository로 전송
+* commit을 remo_repository로 전송
 * `git push -u origin master` 형식으로 사용
 
 
 
 ## git clone
 
-* remote repo를 local로 복사
+* remo_repository를 local로 복사
 * `git clone <remote_repo>` 형식으로 사용
