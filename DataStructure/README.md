@@ -62,41 +62,41 @@
 
   * Internal Node : 자식을 가지고 있는 Node
 
-  * Tree 종류
+* Tree 종류
 
-    * Binary Tree(이진트리)
+  * Binary Tree(이진트리)
 
-      * Node들이 최대 2명의 자식을 가짐. 
+    * Node들이 최대 2명의 자식을 가짐. 
 
-      * Binary Tree 종류
+    * Binary Tree 종류
 
-        > Perfect Binary Tree(포화 이진트리) : 모든 레벨이 Node들로 꽉찬 상태
-        >
-        > Complete Binary Tree(완전 이진트리) : Node들이 위에서 아래로 왼쪽에서 오른쪽으로 순서대로 채워진 상태
-        >
-        > Full Binary Tree(정 이진트리) : 모든 Node들이 자식이 둘다 있거나 아예 없는 상태
+      > Perfect Binary Tree(포화 이진트리) : 모든 레벨이 Node들로 꽉찬 상태
+      >
+      > Complete Binary Tree(완전 이진트리) : Node들이 위에서 아래로 왼쪽에서 오른쪽으로 순서대로 채워진 상태
+      >
+      > Full Binary Tree(정 이진트리) : 모든 Node들이 자식이 둘다 있거나 아예 없는 상태
 
-    * Binary Search Tree(이진탐색트리)
+  * Binary Search Tree(이진탐색트리)
 
-      * 효율적인 탐색을 위한 Binary Tree의 특징을 가진 Tree구조
+    * 효율적인 탐색을 위한 Binary Tree의 특징을 가진 Tree구조
 
-      * 규칙
+    * 규칙
 
-        > 규칙1 : 모든 Node들의 키값은 유일함
-        >
-        > 규칙2 : 모든 Node들의 왼쪽 자식은 부모 Node 보다 작음
-        >
-        > 규칙3 : 모든 Node들의 오른쪽 자식은 부모 Node 보다 큼
-        >
-        > 규칙4 : Binary Search Tree의 Sub Tree도 Binary Search Tree임
+      > 규칙1 : 모든 Node들의 키값은 유일함
+      >
+      > 규칙2 : 모든 Node들의 왼쪽 자식은 부모 Node 보다 작음
+      >
+      > 규칙3 : 모든 Node들의 오른쪽 자식은 부모 Node 보다 큼
+      >
+      > 규칙4 : Binary Search Tree의 Sub Tree도 Binary Search Tree임
 
-      * 탐색의 경우 평균적으로 `O(log n)`의 시간복잡도를 가짐
-      * Node들이 한쪽 방향으로 쏠릴 경우 `O(n)`의 시간복잡도를 가지게 됨
-      * 위의 단점을 보안하기 위해 Rebalancing 등장
+    * 탐색의 경우 평균적으로 `O(log n)`의 시간복잡도를 가짐
+    * Node들이 한쪽 방향으로 쏠릴 경우 `O(n)`의 시간복잡도를 가지게 됨
+    * 위의 단점을 보안하기 위해 Rebalancing 등장
 
-    * Balanced Binary Search Tree
+  * Balanced Binary Search Tree
 
-      * Binary Search Tree의 단점을 보안하기 위해 등장
+    * Binary Search Tree의 단점을 보안하기 위해 등장
 
 # Trie
 
