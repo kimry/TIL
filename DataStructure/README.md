@@ -106,5 +106,24 @@
 
 # Heap
 
+* 우선순위 큐를 위하여 만들어진 자료구조
+
+* Complete Binary Tree 구조
+
+* 느슨한 정렬 상태(계층단위로 정렬) => 같은 계층사이에는 정렬이 되어 있지 않음
+
+* Heap의 종류
+
+  >Max Heap : 큰 순서로 계층들이 정렬
+  >
+  >Min Heap :  작은 순서로 계층들이 정렬
+
 # Hash Table
+
+* hashcode를 인덱스로 이용하여 빠른 검색 가능 / 시간복잡도 : O(1)
+* Collision 해결법
+  * Open Address
+  * Separate Chaining
+    * Linked List 사용
+    * Tree 사용
 
