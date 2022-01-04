@@ -14,16 +14,16 @@ JAVA로 개발하기 위해서는 자바에 대해서 알아야 한다.
 
 1. JVM
 2. Primitive vs Wrapper
-3. synchronized
+3. Synchronized
 
-# JVM
+# 1. JVM
 
 1. Class Loader
 2. Runtime Data Area
 3. Execution Engine
 4. Garbage Collector
 
-# Primitive 자료형 vs Wrapper Class
+# 2. Primitive 자료형 vs Wrapper Class
 
 int 와 integer의 차이는 뭘까?
 
@@ -49,4 +49,18 @@ Integer, 즉 Warpper class는 객체이다.
 1. 객체이기 때문에 unboxing을 하기 전에는 산술연산이 불가능하다.
 2. 객체이기 때문에 null값을 넣을 수 있다.
 3. DB에서 자료형이 정수형이지만 null값이 필요한 경우 DTO에 integer를 사용하여 null값을 표현할 수 있음.(이렇게 사용 가능하다는 것을 생각도 못해봤다.)
+
+
+
+솔직히 Wrapper Class가 왜 존재하는지에 대해서 이해가 잘 안됐었는데 찾아보니 이유가 있었다.
+
+그냥 내가 몰랐고 궁금해하지 않았을 뿐...
+
+
+
+개발자가 되기 위해서 ''왜?' 라는 고민이 얼마나 중요한지 다시한번 느낄 수 있었다.
+
+# 3. Synchronized
+
+
 
