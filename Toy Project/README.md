@@ -1,2 +1,0 @@
-# Toy Project
-JPA
