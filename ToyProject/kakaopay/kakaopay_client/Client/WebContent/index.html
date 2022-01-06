@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>kakaopay client</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<div>
+kakaopay client
+<table border=1>
+	<tr>
+		<td>ID</td>
+		<td><input type="text" id="userId" size="20" value="root"></td>
+	</tr>
+	<tr>
+		<td>상품명</td>
+		<td><input type="text" id="product" size="20"></input></td>
+	<tr>
+	<tr>
+		<td>가격</td>
+		<td><input type="text" id="price" size="20"></input></td>
+	<tr>
+	<tr>
+		<td>수량</td>
+		<td><input type="text" id="quantity" size="20"></input></td>
+	<tr>
+</table>
+<button onclick="ready()">결제</button>
+</div>
+<script type="text/javascript">
+function ready(){
+	$.ajax({
+		type:"POST",
+		url:"http://localhost:3000/ready",
+		data:{userId:$("#userId").val(), product:$("#product").val(), price:$("#price").val(), quantity:$("#quantity").val()},
+		success:function(resp){
+			sessionStorage.setItem('tid',resp.tid);
+			location.href=resp.next_redirect_pc_url;
+		}
+	});
+}
+</script>
+</body>
+</html>
