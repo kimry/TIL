@@ -37,7 +37,46 @@ Singleton Pattern이란?
   5. 첫 인스턴스 생성 이후, 객체 로딩시간 감소
 * 문재점
   1. 싱글톤 인스턴스가 너무 많은 일을 하거나 다른 클래스들과 너무 많은 데이터를 공유할 경우, 인스턴스들 간의 결합도가 높아져 객체지향적 프로그래밍을 위한 SOLID의 OCP, 개방 폐쇄 원칙에 어긋남.
+  
   2. 다중 스레드에서 인스턴스가 2개 이상 생성될 가능성이 있음(동기화 처리 필요)
+  
+     ```java
+     public class Hello {
+         public static void main(String[] args)
+         {
+             MySingletonClass singleton1 = MySingletonClass.getInstance();
+             MySingletonClass singleton2 = MySingletonClass.getInstance();
+             MySingletonClass singleton3 = MySingletonClass.getInstance();
+     
+             System.out.println(singleton1.s);
+             System.out.println(singleton2.s);
+             System.out.println(singleton3.s);
+     
+             singleton1.s = "Change String"; // singleton1만 바뀔 것 같지만 모두 같은 인스턴스를 가지고 있으므로 모두 변환된 값을 출력함.
+     
+             System.out.println(singleton1.s);
+             System.out.println(singleton2.s);
+             System.out.println(singleton3.s);
+         }
+     }
+     class MySingletonClass {
+         private static MySingletonClass single_instance = null;
+     
+         public String s;
+     
+         private MySingletonClass() {
+             s = "MySingletonClass"; // 인스턴스 생성시 들어가는 문자열
+         }
+     
+         public static MySingletonClass getInstance() { 
+             if(single_instance == null) { // null일 경우 인스턴스 생성
+                 single_instance = new MySingletonClass(); // 멀티쓰래드 환경의 경우 인스턴스가 두개 이상 만들어 질 수 있음. 고로 Synchronized 필요.
+             }
+     
+             return single_instance; // 인스턴스 생성 이후부터는 생성 없이 같은 인스턴스 리턴
+         }
+     }
+     ```
 
 공부를 하고 나서 느낀점은, 사실 프로젝트를 진행하면서 모든 구조를 싱글톤 패턴을 이용해서 구현 하였지만 동기화 처리에 대해 신경을 쓴적이 없었다.
 
