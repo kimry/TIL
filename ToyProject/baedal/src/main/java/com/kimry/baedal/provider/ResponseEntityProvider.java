@@ -1,4 +1,4 @@
-package com.kimry.baedal.util;
+package com.kimry.baedal.provider;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,8 @@ import java.util.Map;
 @Component
 public class ResponseEntityProvider {
 
-    public ResponseEntity getMessage(String message, HttpStatus status){
-        Map<String, String> body = new HashMap<String, String>();
+    public ResponseEntity<Map<String, String>> getMessage(String message, HttpStatus status){
+        Map<String, String> body = new HashMap<>();
         body.put("message",message);
         return ResponseEntity.status(status).body(body);
     }

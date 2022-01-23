@@ -1,48 +1,53 @@
 package com.kimry.baedal.controller;
 
-import com.kimry.baedal.util.CurrentDateProvider;
-import com.kimry.baedal.domain.Users;
 import com.kimry.baedal.enums.UserType;
-import com.kimry.baedal.service.UsersService;
-import com.kimry.baedal.util.ResponseEntityProvider;
+import com.kimry.baedal.vo.SignInVO;
+import com.kimry.baedal.vo.SignUpVO;
+import com.kimry.baedal.domain.User;
+import com.kimry.baedal.provider.CurrentDateProvider;
+import com.kimry.baedal.service.UserService;
+import com.kimry.baedal.provider.ResponseEntityProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value="/users")
 public class UsersController {
 
     @Autowired
-    ResponseEntityProvider responseEntityProvider;
-
-    @Autowired
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    UsersService usersService;
+    UserService userService;
 
     @Autowired
     CurrentDateProvider currentDateProvider;
 
     @PostMapping(value="/sign-in")
-    public ResponseEntity<Object> signIn(String email, String password){
+    public ResponseEntity<Map<String, String>> signIn(@RequestBody SignInVO signInVO){
 
+        String token = userService.signIn(signInVO.getEmail(), signInVO.getPassword());
 
-        if(usersService.validatePassword(email, password))
-        {
-            return responseEntityProvider.getMessage("성공",HttpStatus.CREATED);
-        }
-        return responseEntityProvider.getMessage("올바른 이메일을 입력해주세요", HttpStatus.BAD_REQUEST);
+        Map<String, String> message = new HashMap<>();
+        message.put("accessToken",token);
+
+        return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
     @PostMapping(value="/sign-up")
-    public ResponseEntity<Object> signUp(String email, String password, UserType userType){
+    public ResponseEntity<User> signUp(@RequestBody SignUpVO signUpVO){
 
-        return usersService.signUp(email, password, userType);
+        User user = userService.signUp(signUpVO.getEmail(),signUpVO.getPassword(), UserType.value(signUpVO.getUserType()));
+
+        return new ResponseEntity<>(user,HttpStatus.CREATED);
     }
 }

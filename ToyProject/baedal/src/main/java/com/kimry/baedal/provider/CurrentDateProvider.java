@@ -1,4 +1,4 @@
-package com.kimry.baedal.util;
+package com.kimry.baedal.provider;
 
 import org.springframework.stereotype.Component;
 

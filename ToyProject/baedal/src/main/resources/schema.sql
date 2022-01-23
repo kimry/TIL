@@ -1,4 +1,4 @@
-CREATE TABLE USERS(
+CREATE TABLE USER(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email varchar2(255) unique not null,
     password varchar2(255) not null,
@@ -7,7 +7,7 @@ CREATE TABLE USERS(
     updated_At varchar2(30) not null
 );
 
-create table TAXI_REQUESTS(
+create table TAXI_REQUEST(
         id int not null auto_increment primary key,
         address varchar2(255) not null,
         driver_Id int,

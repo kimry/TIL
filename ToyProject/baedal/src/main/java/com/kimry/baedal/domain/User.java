@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Users {
+public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,4 +26,12 @@ public class Users {
     private String createdAt;
 
     private String updatedAt;
+
+    public User(String email, String password, UserType userType, String currentDate) {
+        this.email = email;
+        this.password = password;
+        this.userType = userType;
+        this.createdAt = currentDate;
+        this.updatedAt = currentDate;
+    }
 }
